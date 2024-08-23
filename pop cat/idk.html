@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Cat Game with Custom Background</title>
+    <style>
+        body {
+            background-image: url('Screenshot_20240823_205320.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: black; /* Text color changed to black */
+        }
+
+        .game-container {
+            text-align: center;
+        }
+
+        #cat {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        #score {
+            margin-top: 20px;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <img id="cat" src="Screenshot_20240823_204123.png" alt="Pop Cat" onclick="popCat()">
+        <div id="score">Score: 0</div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function popCat() {
+            const cat = document.getElementById('cat');
+            const scoreDisplay = document.getElementById('score');
+
+            // Change the image to "open mouth"
+            cat.src = 'Screenshot_20240823_204203.png';
+
+            // Increase score immediately
+            score++;
+            scoreDisplay.textContent = `Score: ${score}`;
+
+            // Change the image back to "closed mouth" after 200ms
+            setTimeout(() => {
+                cat.src = 'Screenshot_20240823_204123.png';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
